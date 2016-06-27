@@ -105,7 +105,7 @@ function switchExample(input) {
 
 function ifExample(input) {
     if (true) {
-            console.log("true";)
+            console.log("true");
         } else {
             console.log("false");
         }
