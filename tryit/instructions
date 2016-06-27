@@ -1,0 +1,55 @@
+# Instructions - 02 - JavaScript
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+
+## 01: Create an HTML page and a JavaScript file
+
+```
+|./root/
+|-- index.html
+|-- script.js
+```
+
+```
+// index.html
+<html>
+<head>
+	
+</head>
+<body>
+
+</body>
+</html>
+```
+
+```
+// script.js
+
+console.log("Test comment.");
+```
+
+## 02: Import the javascript file into the HTML
+
+// index.html
+<html>
+<head>
+	
+</head>
+<body>
+
+<script src="./script.js"></script>
+</body>
+</html>
+
+## 03: Javascript types
+```
+// Javascript's main types:
+
+var aNumber = new Number(2); // Number
+var aString = "A String";	// String
+var aDate = new Date();	// Date
+var aBoolean = true;	//Boolean
+var anObject = new Object();	// Object
+var aNull = null;
+```
+
