@@ -10,7 +10,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_Jav
 |-- script.js
 ```
 
-```
+```html
 // index.html
 <html>
 <head>
@@ -29,8 +29,9 @@ console.log("Test comment.");
 ```
 
 ## 02: Import the javascript file into the HTML
-
-```
+NOTE: Officers will be on the look out for ppl who need help linking the script.js
+NOTE: Discuss placement of the <script/> tag
+```html
 // index.html
 <html>
 <head>
@@ -47,7 +48,7 @@ console.log("Test comment.");
 
 NOTE: Javascript also contains all of the expected mathematical operators `+ - / % *`
 
-```
+```js
 // Javascript's main types:
 
 var aNumber = new Number(2); // Number
@@ -60,7 +61,7 @@ var aNull = null;
 
 ## 04: Javascript Objects
 
-```
+```js
 // working with objects
 
 var obj = {}; // empty object
@@ -74,7 +75,7 @@ console.log(obj);
 
 ## 05: Objects pt2
 
-```
+```js
 // objects can also be instantiated using object literal notation:
 var obj2 = {
     attribute1: "An attribute string",
@@ -87,7 +88,7 @@ obj2.attribute3 = obj; // assigning attributes
 
 ## 06: Objects pt3
 
-```
+```js
 
 // Notice how obj2.attribute3 has updated along with obj.
 
@@ -98,12 +99,17 @@ console.log(obj2);
 
 ## 07: Objects pt4 and boolean operators
 
-```
+```js
 
 // objects in JS are associative arrays or name-value pairs, AKA dictionaries / maps. The value of each attribute can be accessed by its name.
 
 var isEqual = (obj2["attribute3"] == obj2.attribute3);
 console.log(isEqual);
+
+//TODO: discuss ===
+
+//TODO: Arrays
+//TODO: mutator functions
 
 ```
 
@@ -111,7 +117,7 @@ console.log(isEqual);
 
 NOTE: Functions are a special type of Object in JS
 
-```
+```js
 
 // functions
 
@@ -130,7 +136,7 @@ aFunction("one", 2);
 
 ## 09: Functions pt2
 
-```
+```js
 
 // other ways of declaring functions
 
@@ -153,9 +159,9 @@ var aFunctionVar = function(param1, param2) {
 ## 10: Functions pt3 - callbacks and getTimeOut() and getInterval()
 
 NOTE: In JS, functions can be designed to take functions in as parameters and execute them later. The function being passed in as a parameter is known as a callback function.
-NOTE: JS has built various built in functions that add utility to the language, and some expect callback functions as one of their parameters. One example is `getTimeout` or `getInterval`
+NOTE: JS has built various built in functions that add utility to the language, and some expect callback functions as one of their parameters. One example is `setTimeout` or `setInterval`
 
-```
+```js
 
 // increment a timer every 1 second and print the result
 
@@ -170,9 +176,9 @@ setTimeout(aFunctionVar(1, 2) , 1000); // prints 1 and 2 after 1 second of waiti
 
 ```
 
-# 11: Functions pt4
+## 11: Functions pt4
 
-```
+```js
 
 obj2.aFunction = aFunctionVar;
 
@@ -181,11 +187,11 @@ obj2.aFunction(1, 2);
 ```
 
 
-## 12: Boolean operators, Command Structures, and using the JS console from developer tools
+## 12.1: Boolean operators, Command Structures, and using the JS console from developer tools
 
 NOTE: The web console available in your browser's developer toolkit can be used to execute functions. We will do this now with these functions
 
-```
+```js
 
 var counter = 0;
 
@@ -227,13 +233,71 @@ function whileExample(input) {
 
 }
 
+
+```
+
+## 12.2: The for loop
+
+```js
+
 // for loop
+function forExample(input) {
+    // classic for loop
+    for(var i = 0; i < input; i++) {
+        console.log(i);
+    }
+
+    // iterate through an array
+
+    // iterate through each key of an object
+
+}
 
 ```
 
-## 13: Numbers, isType, Date pt1
-NOTE: Let's make a function that takes in a Number `number` and returns a Date equivalent to the (current moment) + (`number` amount of days)
+## 12.3: Iterate through an array using for loop
+NOTE: Using `for of` and iterable objects - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
+
+```js
+
+// for loop
+function forExample(input) {
+    ...
+    var array = ['gtwebdev', 'gitmad', 'designclub']
+    // iterate through an array
+    for(var element of array) {
+        console.log(element);
+    }
+
+}
+
 ```
+
+## 12.4: Iterating through an object using a for loop
+NOTE: If you don't want to deal with using `newObject[property]`, you will need to create an iterator function to use for the object.
+
+
+```js
+
+// for loop
+function forExample(input) {
+    ...
+    // iterate through each key of an object
+    var newObject = {
+        property1: 1,
+        property2: 2,
+        property3: 3
+    }
+    for(var property in newObject) {
+        console.log(newObject[property]);
+    }
+}
+
+```
+
+## 13: Numbers, typeof, Date pt1
+NOTE: Let's make a function that takes in a Number `number` and returns a Date equivalent to the (current date) + (`number` amount of days)
+```js
 
 function getDateXDaysFromNow(x) {
     // verify that x is a number
@@ -247,7 +311,7 @@ function getDateXDaysFromNow(x) {
 NOTE: The JS Number type has some quirks
 NOTE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-```
+```js
 
 function getDateXDaysFromNow(x) {
     // verify that x is a number
@@ -263,10 +327,8 @@ function getDateXDaysFromNow(x) {
 ```
 
 ## 13: Numbers, typeof, Date pt3
-NOTE: The JS Number type has some quirks
-NOTE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-```
+```js
 
 function getDateXDaysFromNow(x) {
     var currDate;
@@ -281,7 +343,8 @@ function getDateXDaysFromNow(x) {
     currDate = new Date();
 
     // add x days to current date and return
-    return ___;
+    currDate.setDate(currDate.getDate() + x);
+    return currDate;
 }
 
 ```
@@ -290,7 +353,7 @@ function getDateXDaysFromNow(x) {
 
 NOTE: Function and Block Scope - https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
-```
+```js
 
 
 
@@ -300,7 +363,7 @@ NOTE: Function and Block Scope - https://github.com/getify/You-Dont-Know-JS/blob
 
 NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
-```
+```js
 
 
 
@@ -310,7 +373,7 @@ NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closure
 NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
 
-```
+```js
 
 
 
@@ -318,7 +381,7 @@ NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closure
 
 ## 17: window
 
-```
+```js
 
 console.log(window);
 
@@ -331,3 +394,38 @@ NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closure
 
 ```
 
+## 19: Prototypical Inheritance
+
+```
+
+
+
+```
+
+## 20: ES6
+
+```
+// let
+
+// lambda
+
+// const
+
+// ...
+
+
+
+```
+
+## 21: Multiple JS Files and inline JS
+
+```
+
+
+```
+
+## 22: Arrays and mutator functions
+
+```
+
+```

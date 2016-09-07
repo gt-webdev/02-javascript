@@ -121,4 +121,45 @@ function whileExample(input) {
 
 }
 
+// for loop
+function forExample(input) {
+    // classic for loop
+    for(var i = 0; i < input; i++) {
+        console.log(i);
+    }
 
+    // iterate through an array
+    var array = ['gtwebdev', 'gitmad', 'designclub']
+    // iterate through an array
+    for(var element of array) {
+        console.log(element);
+    }
+
+    // iterate through each key of an object
+    var newObject = {
+        property1: 1,
+        property2: 2,
+        property3: 3
+    }
+    for(var property in newObject) {
+        console.log(newObject[property]);
+    }
+
+}
+
+function getDateXDaysFromNow(x) {
+    var currDate;
+    // verify that x is a number
+    console.log(typeof x);
+    if(isNaN(x)) {
+        return;
+    }
+
+
+    // get current date
+    currDate = new Date();
+
+    // add x days to current date and return
+    currDate.setDate(currDate.getDate() + x);
+    return currDate;
+}
