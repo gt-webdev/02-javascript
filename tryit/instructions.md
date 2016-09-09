@@ -1,6 +1,8 @@
 # Instructions - 02 - JavaScript
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
+In this tutorial, we will outline the major features of the Javascript language. This [Mozilla Developer Network page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) also serves as a great resource for further learning.
+
+During our presentation on Tuesday, September 13th, `<gt-webdev/>` will be available to assist you with any questions.
 
 ## 01: Create an HTML page and a JavaScript file
 
@@ -14,7 +16,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_Jav
 // index.html
 <html>
 <head>
-	
+
 </head>
 <body>
 
@@ -22,31 +24,31 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_Jav
 </html>
 ```
 
-```
+```js
 // script.js
 
 console.log("Test comment.");
 ```
 
 ## 02: Import the javascript file into the HTML
-NOTE: Officers will be on the look out for ppl who need help linking the script.js
-NOTE: Discuss placement of the <script/> tag
+
+If you have trouble link to the `script.js`, look out for an officer.
+
+In most production settings,  the `script.js` is included at the bottom of the HTML markup document as such:
+
 ```html
 // index.html
 <html>
 <head>
-	
 </head>
 <body>
-
-<script src="./script.js"></script>
+	<!-- Your website markup -->
+	<script src="./script.js"></script>
 </body>
 </html>
 ```
 
-## 03: Javascript types
-
-NOTE: Javascript also contains all of the expected mathematical operators `+ - / % *`
+## 03: Javascript types and standard operations
 
 ```js
 // Javascript's main types:
@@ -59,7 +61,23 @@ var anObject = new Object();	// Object
 var aNull = null;
 ```
 
-## 04: Javascript Objects
+As expected of all high-level languages, Javascript support the standard mathematical operations: `+`, `-`, `*`, and `/`. Check out this interesting behavior:
+
+```js
+"1" + 2 + 3;    // "123"
+1 + 2 + "3";    // "33"
+```
+
+What about equality checking? Javascript has two different types of equality operators: `==` and `===`. What's the difference? Using `==` coerces types as such:
+
+```js
+101 == "101";   // true
+1 == true;      // true
+```
+
+What's happening here? With `A == B`, Javascript converts `A` to the type of `B` and performs the comparison. (See [this StackOverflow post](http://stackoverflow.com/questions/19915688/what-exactly-is-type-coercion-in-javascript) for more info.) Use the non-converting comparison operator `===` if you want objects to be compared as they would be in a statically-typed language like Java or C#.
+
+## 04: Javascript objects, part 1
 
 ```js
 // working with objects
@@ -69,11 +87,15 @@ console.log(obj);
 
 // add an attribute to the object
 obj.aString = "A string";
+// Which is equivalent to
+obj["aString"] = "A string";
 console.log(obj);
 
 ```
 
-## 05: Objects pt2
+How can we do this? In Javascript, *every single object* is basically a dictionary! You can add, remove, or call a function, from a Javascript object as you would a dictionary in Python.
+
+## 05: Javascript objects, part 2
 
 ```js
 // objects can also be instantiated using object literal notation:
@@ -86,7 +108,7 @@ obj2.attribute3 = obj; // assigning attributes
 
 ```
 
-## 06: Objects pt3
+## 06: Javascript objects, part 3
 
 ```js
 
@@ -97,7 +119,7 @@ console.log(obj2);
 
 ```
 
-## 07: Objects pt4 and boolean operators
+## 07: Javascript objects, part 4 and boolean operators
 
 ```js
 
@@ -106,14 +128,16 @@ console.log(obj2);
 var isEqual = (obj2["attribute3"] == obj2.attribute3);
 console.log(isEqual);
 
-//TODO: discuss ===
-
 //TODO: Arrays
+
+
 //TODO: mutator functions
 
 ```
 
 ## 08: Functions
+
+In Javascript, functions are first-class objects.
 
 NOTE: Functions are a special type of Object in JS
 
@@ -134,7 +158,7 @@ aFunction("one", 2);
 
 ```
 
-## 09: Functions pt2
+## 09: Functions, part 2
 
 ```js
 
@@ -156,7 +180,7 @@ var aFunctionVar = function(param1, param2) {
 
 ```
 
-## 10: Functions pt3 - callbacks and getTimeOut() and getInterval()
+## 10: Functions, part 3 - callbacks and getTimeOut() and getInterval()
 
 NOTE: In JS, functions can be designed to take functions in as parameters and execute them later. The function being passed in as a parameter is known as a callback function.
 NOTE: JS has built various built in functions that add utility to the language, and some expect callback functions as one of their parameters. One example is `setTimeout` or `setInterval`
@@ -176,7 +200,7 @@ setTimeout(aFunctionVar(1, 2) , 1000); // prints 1 and 2 after 1 second of waiti
 
 ```
 
-## 11: Functions pt4
+## 11: Functions, part 4
 
 ```js
 
@@ -236,7 +260,7 @@ function whileExample(input) {
 
 ```
 
-## 12.2: The for loop
+## 12.2: The `for` loop
 
 ```js
 
@@ -295,7 +319,7 @@ function forExample(input) {
 
 ```
 
-## 13: Numbers, typeof, Date pt1
+## 13: Numbers, typeof, Date part 1
 NOTE: Let's make a function that takes in a Number `number` and returns a Date equivalent to the (current date) + (`number` amount of days)
 ```js
 
@@ -307,7 +331,7 @@ function getDateXDaysFromNow(x) {
 
 ```
 
-## 13: Numbers, isType, Date pt2
+## 13: Numbers, isType, Date part 2
 NOTE: The JS Number type has some quirks
 NOTE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
 
@@ -326,7 +350,7 @@ function getDateXDaysFromNow(x) {
 
 ```
 
-## 13: Numbers, typeof, Date pt3
+## 13: Numbers, typeof, Date part 3
 
 ```js
 
