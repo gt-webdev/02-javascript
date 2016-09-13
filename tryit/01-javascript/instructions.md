@@ -112,8 +112,6 @@ obj2.property3 = obj; // assigning properties
 
 ```js
 
-// Notice how obj2.attribute3 has updated along with obj.
-
 obj.aSecondString = "A String";
 console.log(obj2);
 
@@ -170,7 +168,7 @@ NOTE: Immediately Invoked Function Expressions - https://github.com/getify/You-D
 (function (param1, param2) {
     console.log(param1);
     console.log(param2);
-})();
+})(1, 2);
 
 // anonymous functions can be used for as one time functions that don't need to be referenced again, or they can be assigned to a variable.
 
@@ -347,7 +345,6 @@ function getDateXDaysFromNow(x) {
 function getDateXDaysFromNow(x) {
     var currDate;
     // verify that x is a number
-    console.log(typeof x);
     if(isNaN(x)) {
         return;
     }
@@ -363,24 +360,41 @@ function getDateXDaysFromNow(x) {
 
 ```
 
+## 14: Prototypes
+
+```js
+
+    var array = [1, 2, 3, 4];
+
+    array.contains(4); // causes an error
+
+```
+
+The Array object seems to not have a method `contains` that we were looking for. Using object prototypes
+
+```js
+
+    Array.prototype.contains = function(query) {
+        if (this.indexOf(query) > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+```
 
 Further Reading
 ---
 
 ## Scope
-
-NOTE: Function and Block Scope - https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
-
-## Scope pt2 - Global namespaces
-
-NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
+https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
 ## Scope pt3 - IIFE & the module design pattern
-NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
+https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
 ## Hoisting
-NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
+https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
 ## Array methods
-
-NOTE: http://www.w3schools.com/js/js_array_methods.asp
+http://www.w3schools.com/js/js_array_methods.asp
