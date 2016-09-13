@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+	</head>
+
+	<body>
+	
+		<input type="text" id="message"/>
+		<button type="submit" id="submit">Submit</button>
+
+		<ul id="history">
+			<li><span id="username">(unknown)</span>, welcome to our chat room! Let's be friends! :) </li>
+		</ul>
+	
+		
+		<script type="text/javascript">
+			(function () {
+				const LOCAL_STORAGE_KEY = 'chat-username';
+			
+				var username = localStorage.getItem(LOCAL_STORAGE_KEY);
+				while (username == null || username == "") {
+					username = prompt("Welcome new user! What is your username?");
+				}
+				
+				localStorage.setItem(LOCAL_STORAGE_KEY, username);
+
+				document.getElementById("username").innerHTML = username;
+
+				var submitButton = document.getElementById("submit"),
+					historyElement = document.getElementById("history"),
+					messageElement = document.getElementById("message");
+
+				var addNewMessage = function (text) {
+					var newMessageNode = document.createElement("li");
+					var messageNodeText = document.createTextNode(text);
+					newMessageNode.appendChild(messageNodeText);
+					historyElement.appendChild(newMessageNode);
+				};
+
+				var sendMessage = function () {
+					var messageText = messageElement.value;
+					
+					if (messageText == null || messageText == "") {
+						var sendEmptyMessage = confirm(username + ", are you sure you want to send an empty message?");
+						if (!sendEmptyMessage) return;
+					}
+					
+					addNewMessage(username + ": " + messageText);
+					messageElement.value = "";
+				};
+
+				submitButton.addEventListener("click", sendMessage);
+			})();
+		</script>
+	
+	</body>
+	
+
+</html>
