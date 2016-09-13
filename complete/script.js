@@ -1,33 +1,14 @@
-console.log("Test comment");
-
-
-// working with objects
-
-var obj = {}; // empty object
-console.log(obj);
+var obj = {};
 
 // add a property to the object
-obj.property = "A property";
-console.log(obj);
+obj.aProperty = "a string";
+// Which is equivalent to
+obj["aProperty"] = "a string";
 
 var obj2 = {
-	attribute1: "An attribute string",
-	attribute2: 123
+    property1: "An attribute string",
+    property2: 123
 }
-
-obj2.attribute3 = obj; // objects and variables can be assigned as an object property
-
-
-// Notice how obj2.attribute3 has updated along with obj.
-// This is because obj2.attribute3 is a reference to obj.
-obj.aSecondString = "A String";
-console.log(obj2);
-
-// objects in JS are associative arrays or name-value pairs, AKA dictionaries / maps. The value of each attribute can be accessed by its name.
-
-var isEqual = (obj2["attribute3"] == obj2.attribute3);
-console.log(isEqual);
-
 
 
 // functions
@@ -43,38 +24,31 @@ test(1, "two");
 test("one", 2);
 
 
-// other ways of declaring functions
-
-// anonymous
-(function (param1, param2) {
-	console.log(param1);
-	console.log(param2);
-})
-
-// anonymous functions can be used for as one time functions that don't need to be referenced again, or they can be assigned to a variable.
-
-var aFunctionVar = function(param1, param2) {
-	console.log(param1);
-	console.log(param2);
+var testFunction = function (param1, param2) {
+    console.log(param1);
+    console.log(param2);
 }
+
+testFunction('test', 'function');
 
 // increment a timer every 1 second and print the result
 
 var timer = 0;
-var beginCount = function() {
-	setInterval(function() {
-	    console.log(timer++);
-	}, 1000);
-}
 
+setInterval(function() {
+    console.log(timer++);
+}, 1000);
 
 // previously assigned function variables can also be used as callback functions:
 
-setTimeout(aFunctionVar("one", "two") , 1000); // prints "one" and "two" after 1 second of waiting
+setTimeout(function() {testFunction(1, 2)} , 1000); // prints 1 and 2 after 1 second of waiting
 
 
-// 12: Boolean operators, Command Structures, and using the JS console from developer tools
+// Command Structures
 
+var counter = 0;
+
+// switch statements
 
 function switchExample(input) {
     switch(input) {
@@ -91,6 +65,7 @@ function switchExample(input) {
     }
 }
 
+
 // if statement
 
 function ifExample(input) {
@@ -101,15 +76,6 @@ function ifExample(input) {
         }
 }
 
-// while statement
-var num = 0;
-function whileExample(input) {
-    while(num > 9999) {
-        num++;
-    }
-    return num;
-
-}
 
 // for loop
 function forExample(input) {
@@ -134,7 +100,6 @@ function forExample(input) {
     for(var property in newObject) {
         console.log(newObject[property]);
     }
-
 }
 
 function getDateXDaysFromNow(x) {
