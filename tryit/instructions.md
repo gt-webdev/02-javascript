@@ -53,7 +53,7 @@ In most production settings,  the `script.js` is included at the bottom of the H
 ```js
 // Javascript's main types:
 
-var aNumber = new Number(2); // Number
+var aNumber = 2; // Number
 var aString = "A String";	// String
 var aDate = new Date();	// Date
 var aBoolean = true;	//Boolean
@@ -85,10 +85,10 @@ What's happening here? With `A == B`, Javascript converts `A` to the type of `B`
 var obj = {}; // empty object
 console.log(obj);
 
-// add an attribute to the object
-obj.aString = "A string";
+// add a property to the object
+obj.aProperty = "a string";
 // Which is equivalent to
-obj["aString"] = "A string";
+obj["aProperty"] = "a string";
 console.log(obj);
 
 ```
@@ -100,11 +100,11 @@ How can we do this? In Javascript, *every single object* is basically a dictiona
 ```js
 // objects can also be instantiated using object literal notation:
 var obj2 = {
-    attribute1: "An attribute string",
-    attribute2: 123
+    property1: "An attribute string",
+    property2: 123
 }
 
-obj2.attribute3 = obj; // assigning attributes
+obj2.property3 = obj; // assigning properties
 
 ```
 
@@ -119,56 +119,58 @@ console.log(obj2);
 
 ```
 
+Notice how obj2.attribute3 has updated along with obj.
+
 ## 07: Javascript objects, part 4 and boolean operators
 
 ```js
 
-// objects in JS are associative arrays or name-value pairs, AKA dictionaries / maps. The value of each attribute can be accessed by its name.
+// objects in JS are associative arrays or name-value pairs, AKA dictionaries AKA maps. The value of each attribute can be accessed by its name.
 
-var isEqual = (obj2["attribute3"] == obj2.attribute3);
+var isEqual = (obj2["attribute3"] === obj2.attribute3);
 console.log(isEqual);
-
-//TODO: Arrays
-
-
-//TODO: mutator functions
 
 ```
 
 ## 08: Functions
 
-In Javascript, functions are first-class objects.
+In Javascript, functions are first-class objects. This means that you can store functions in data structures, pass them as arguments to other functions, and return them as values of other functions, just like you can with objects.
 
-NOTE: Functions are a special type of Object in JS
+NOTE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function
+
 
 ```js
 
 // functions
 
-function aFunction(param1, param2) {
+function test(param1, param2) {
     console.log("Property 1: " + param1);
     console.log("Property 2: " + param2);
 }
 
 // JS is a loosely typed language; the function is given no knowledge of what type its parameters are
-aFunction(1, "two");
+test(1, "two");
 
-aFunction("one", 2);
+test("one", 2);
 
 
 ```
 
 ## 09: Functions, part 2
 
+NOTE: Immediately Invoked Function Expressions - https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
+
 ```js
 
 // other ways of declaring functions
 
-// anonymous
-function (param1, param2) {
+// anonymous functions
+
+// anonymous functions can be used for immediately invoked function expressions
+(function (param1, param2) {
     console.log(param1);
     console.log(param2);
-}
+})();
 
 // anonymous functions can be used for as one time functions that don't need to be referenced again, or they can be assigned to a variable.
 
@@ -196,7 +198,7 @@ setInterval(function() {
 
 // previously assigned function variables can also be used as callback functions:
 
-setTimeout(aFunctionVar(1, 2) , 1000); // prints 1 and 2 after 1 second of waiting
+setTimeout(function() {aFunctionVar(1, 2)} , 1000); // prints 1 and 2 after 1 second of waiting
 
 ```
 
@@ -211,9 +213,8 @@ obj2.aFunction(1, 2);
 ```
 
 
-## 12.1: Boolean operators, Command Structures, and using the JS console from developer tools
+## 12.1: Boolean operators, Command Structures
 
-NOTE: The web console available in your browser's developer toolkit can be used to execute functions. We will do this now with these functions
 
 ```js
 
@@ -241,22 +242,11 @@ function switchExample(input) {
 
 function ifExample(input) {
     if (true) {
-            console.log("true";)
+            console.log("true");
         } else {
             console.log("false");
         }
 }
-
-// while statement
-var num = 0;
-function whileExample(input) {
-    while(num > 9999) {
-        num++;
-    }
-    return num;
-
-}
-
 
 ```
 
@@ -373,83 +363,24 @@ function getDateXDaysFromNow(x) {
 
 ```
 
-## 14: Scope
+
+Further Reading
+---
+
+## Scope
 
 NOTE: Function and Block Scope - https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
-```js
-
-
-
-```
-
-## 15: Scope pt2 - Global namespaces
+## Scope pt2 - Global namespaces
 
 NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
-```js
-
-
-
-```
-
-## 16: Scope pt3 - IIFE & the module design pattern
+## Scope pt3 - IIFE & the module design pattern
 NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
-
-```js
-
-
-
-```
-
-## 17: window
-
-```js
-
-console.log(window);
-
-```
-
-## 18: Hoisting
+## Hoisting
 NOTE: https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/ch3.md
 
-```
+## Array methods
 
-```
-
-## 19: Prototypical Inheritance
-
-```
-
-
-
-```
-
-## 20: ES6
-
-```
-// let
-
-// lambda
-
-// const
-
-// ...
-
-
-
-```
-
-## 21: Multiple JS Files and inline JS
-
-```
-
-
-```
-
-## 22: Arrays and mutator functions
-
-```
-
-```
+NOTE: http://www.w3schools.com/js/js_array_methods.asp

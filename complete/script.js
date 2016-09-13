@@ -1,23 +1,13 @@
 console.log("Test comment");
 
 
-// Javascript's main types:
-
-var aNumber = new Number(2); // Number
-var aString = "A String";	// String
-var aDate = new Date();	// Date
-var aBoolean = true;	//Boolean
-var anObject = new Object();	// Object
-var aNull = null;
-
-
 // working with objects
 
 var obj = {}; // empty object
 console.log(obj);
 
-// add an attribute to the object
-obj.aString = "A string";
+// add a property to the object
+obj.property = "A property";
 console.log(obj);
 
 var obj2 = {
@@ -25,7 +15,7 @@ var obj2 = {
 	attribute2: 123
 }
 
-obj2.attribute3 = obj; // objects and variables can be assigned as an object attribute
+obj2.attribute3 = obj; // objects and variables can be assigned as an object property
 
 
 // Notice how obj2.attribute3 has updated along with obj.
@@ -42,15 +32,15 @@ console.log(isEqual);
 
 // functions
 
-function aFunction(param1, param2) {
-	console.log("Property 1: " + param1);
-	console.log("Property 2: " + param2);
+function test(param1, param2) {
+    console.log(param1);
+    console.log(param2);
 }
 
-// JS is a loosely typed language; the function is given no knowledge of what type its parameters are
-aFunction(1, "two");
+// JS is a loosely typed language; the function is given no knowledge of what type its parameters are:
 
-aFunction("one", 2);
+test(1, "two");
+test("one", 2);
 
 
 // other ways of declaring functions
