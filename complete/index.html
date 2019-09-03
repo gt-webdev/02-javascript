@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Having a cool time in JS</title>
+        <script type="text/javascript">
+            function increment() {
+                var counter = document.getElementById("counter");
+                var counterString = counter.innerText;
+                var counterInt = parseInt(counterString);
+                counter.innerText = counterInt + 1;
+            }
+            function makeBlue() {
+                var counter = document.getElementById("counter");
+                var counterString = counter.innerText;
+                var counterInt = parseInt(counterString);
+                var img = document.getElementById("weezy");
+                var withweezy = document.getElementById("withweezy");
+                counter.style.color = 'blue';
+                counter.style.fontSize = '28pt';
+                img.style.display = 'block';
+                withweezy.style.display = 'inline-block';
+            }
+         </script>
+         <style type="text/css">
+            @keyframes rotation {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(359deg);
+                }
+            }
+            img {
+                display: none;
+            }
+            #withweezy {
+                display: none;
+            }
+            #weezy {
+                animation: rotation 2s infinite linear;
+            }
+         </style>
+    </head>
+    <body>
+        <h1 onMouseOver="increment()" onClick="makeBlue()" id="coolbutton">Hover on this to have a cool time</h1>
+        <p>You've been having <span id="counter">0</span> cool times<span id="withweezy">&nbsp;with weezy</span>.</p>
+        <img id="weezy" src="https://thefader-res.cloudinary.com/private_images/w_760,c_limit,f_auto,q_auto:best/GettyImages-487179634_1_sgm8rl/lil-wayne-playlist-release-from-cash-money.jpg" />
+    </body>
+</html>

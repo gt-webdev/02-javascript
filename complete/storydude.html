@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Story Dude</title>
+        <style type="text/css">
+            #story {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript">
+            function showStory(event) {
+                event.preventDefault();
+                var story = document.getElementById("story");
+                story.style.display = 'block';
+                document.getElementById("first").style.display = 'none';
+                var name = document.getElementById("nameBox").value;
+                if (name === 'John') {
+                    story.style.color = 'green';
+                    story.innerText = "John is a classic man, he's giving this presentation right now!";
+                } else if (name === 'Zach') {
+                    story.style.color = 'red';
+                    story.innerText = "Zach is trash, he's not giving this presentation";
+                } else {
+                    story.style.color = 'yellow';
+                    story.innerText = "Your story is a mystery...";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="#" method="post" onSubmit="showStory(event)">
+            <input type="text" id="nameBox" placeholder="Your Name" />
+            <input type="submit" value="Tell me a story" />
+        </form>
+        <p id="first">Enter your name and I'll tell you a great story</p>
+        <h2 id="story"></h2>
+    </body>
+</html>
